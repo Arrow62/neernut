@@ -34,7 +34,7 @@ const products = [
 
 function Logo() {
   return (
-    <a href="/" className="flex flex-col items-center leading-none text-plum">
+    <a href="/" className="flex w-fit flex-col items-center justify-self-start leading-none text-plum">
       <Flower2 className="h-7 w-7" strokeWidth={1.5} />
       <span className="font-display text-3xl font-semibold md:text-4xl">NEER-NUT</span>
       <span className="mt-1 text-[8px] text-foreground/70">PURE • NATURAL • MITHILA</span>
@@ -57,7 +57,7 @@ function Index() {
           </nav>
           <div className="hidden gap-4 lg:flex"><Search className="h-5 w-5" /><ShoppingBag className="h-5 w-5" /></div>
           <Button variant="ghost" size="icon" className="shrink-0 lg:hidden" onClick={() => setOpen(!open)} aria-label="Menu" aria-expanded={open} aria-controls="mobile-nav">
-            {open ? <X className="h-7 w-7 text-primary-foreground" /> : <Menu className="h-7 w-7 text-primary-foreground" />}
+            {open ? <X className="h-7 w-7 text-plum" /> : <Menu className="h-7 w-7 text-plum" />}
           </Button>
         </header>
         {open && (
