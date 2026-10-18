@@ -29,7 +29,7 @@ export function HomeHero({ children }: { children: React.ReactNode }) {
             <div className="hero-copy relative z-10">
               <p className="text-[10px] font-semibold sm:text-xs">FROM THE PONDS OF MITHILA</p>
               {slide === 0 ? <h1 className="hero-title">Nature’s Pearl,<br />Mithila’s Pride</h1> : <h2 className="hero-title">Nature’s Pearl,<br />Mithila’s Pride</h2>}
-              <p className="hero-description text-foreground/85">Premium makhana, grown in the pure waters of Bihar, rooted in tradition, crafted for a healthier tomorrow.</p>
+              <p className="hero-description text-foreground/85">Authentic Mithila makhana. Hand-harvested, traditionally popped, naturally wholesome.</p>
               <Button asChild tabIndex={selected === slide ? 0 : -1} className="hero-cta rounded-full">
                 <a href="#products">Explore Our Makhana <ArrowRight /></a>
               </Button>
@@ -46,7 +46,7 @@ export function HomeHero({ children }: { children: React.ReactNode }) {
         <Button variant="ghost" size="icon" onClick={() => api?.scrollPrev()} aria-label="Previous slide" title="Previous slide" className="rounded-full border border-foreground/30 bg-cream/60"><ArrowLeft /></Button>
         <Button variant="ghost" size="icon" onClick={() => api?.scrollNext()} aria-label="Next slide" title="Next slide" className="rounded-full border border-foreground/30 bg-cream/60"><ArrowRight /></Button>
       </div>
-      <Button asChild variant="ghost" size="icon" className="absolute bottom-7 right-5 z-10 h-11 w-11 rounded-full border border-primary-foreground text-primary-foreground hover:bg-plum/40 hover:text-primary-foreground md:right-12">
+      <Button asChild variant="ghost" size="icon" className="hero-scroll absolute z-10 rounded-full border border-primary-foreground text-primary-foreground hover:bg-plum/40 hover:text-primary-foreground">
         <a href="#story" aria-label="Scroll to our story"><ArrowDown /></a>
       </Button>
     </Carousel>

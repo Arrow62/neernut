@@ -1,4 +1,5 @@
 # Homepage refinements
-- [x] Replace the hero photograph and refine mobile text/picture placement.
-- [x] Correct story painting placement and polish the product and commitment sections.
-- [x] Add and verify controls for all three hero slides.
+- [x] Create a transparent centered-name header with two makhana-inspired menu controls.
+- [x] Reframe the pond hero to 12:9 and replace the story painting with a slender complete artwork.
+- [x] Keep Premium Makhana only and add origin, nutrition, trust, and sustainable sourcing content.
+- [x] Verify desktop and phone layouts, menus, and carousel controls.
