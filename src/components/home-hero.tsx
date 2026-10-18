@@ -29,7 +29,7 @@ export function HomeHero({ children }: { children: React.ReactNode }) {
             <div className="hero-copy relative z-10">
               <p className="text-[10px] font-semibold sm:text-xs">FROM THE PONDS OF MITHILA</p>
               {slide === 0 ? <h1 className="hero-title">Nature’s Pearl,<br />Mithila’s Pride</h1> : <h2 className="hero-title">Nature’s Pearl,<br />Mithila’s Pride</h2>}
-              <p className="hero-description text-foreground/85">Premium makhana, grown in the pure waters of Bihar, rooted in tradition, crafted for a healthier tomorrow.</p>
+              <p className="hero-description text-foreground/85">Authentic Mithila makhana. Hand-harvested, traditionally popped, naturally wholesome.</p>
               <Button asChild tabIndex={selected === slide ? 0 : -1} className="hero-cta rounded-full">
                 <a href="#products">Explore Our Makhana <ArrowRight /></a>
               </Button>

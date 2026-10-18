@@ -166,7 +166,7 @@
 .hero-picture { position: absolute; inset: 0; overflow: hidden; background: var(--aqua); }
 .hero-photo { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .hero-wash { background: linear-gradient(90deg, color-mix(in oklch, var(--cream) 92%, transparent), color-mix(in oklch, var(--cream) 65%, transparent) 31%, transparent 62%), linear-gradient(180deg, color-mix(in oklch, var(--cream) 40%, transparent), transparent 35%); }
-.hero-copy { aspect-ratio: 12 / 9; width: 100%; padding: 84px 20px 50px; }
+.hero-copy { aspect-ratio: 12 / 9; width: 100%; padding: 84px 20px 0; }
 .hero-title { margin-top: 8px; font-size: 28px; font-weight: 600; line-height: 1.02; max-width: 56%; }
 .hero-description { margin-top: 10px; max-width: 43%; font-size: 11px; line-height: 1.5; }
 .hero-cta { margin-top: 12px; height: 32px; padding-inline: 12px; font-size: 10px; }
@@ -188,9 +188,9 @@
 @media (max-width: 400px) {
   .site-header { padding: 8px; }
   .header-name { font-size: 24px; }
-  .hero-copy { padding: 64px 16px 42px; }
-  .hero-title { font-size: 25px; margin-top: 6px; max-width: 60%; }
-  .hero-description { font-size: 10px; margin-top: 8px; max-width: 49%; line-height: 1.4; }
+  .hero-copy { padding: 62px 16px 0; }
+  .hero-title { font-size: 23px; margin-top: 6px; max-width: 60%; }
+  .hero-description { font-size: 9px; margin-top: 8px; max-width: 48%; line-height: 1.35; }
   .hero-cta { height: 27px; font-size: 9px; margin-top: 9px; padding-inline: 10px; }
   .hero-controls { left: 16px; bottom: 5px; }
   .hero-controls > div button { width: 18px; }
