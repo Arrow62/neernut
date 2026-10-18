@@ -117,9 +117,12 @@ function Index() {
 
       {/* BANNER */}
       <section className="relative bg-plum bg-cover bg-center py-10 text-center text-primary-foreground" style={{ backgroundImage: `url(${banner})` }}>
-        <p className="text-[10px] tracking-[0.25em] opacity-70">SUSTAINABLE TODAY • HEALTHY TOMORROW</p>
-        <h2 className="mt-2 px-5 text-xl md:text-4xl">Supporting Farmers. Nourishing Lives.</h2>
-        <a href="#" className="mt-5 inline-flex items-center gap-2 rounded-full border border-primary-foreground px-6 py-2 text-xs transition hover:bg-primary-foreground hover:text-plum">Our Commitment <ArrowRight className="h-3 w-3" /></a>
+        <div className="absolute inset-0 bg-plum/50 md:bg-transparent" />
+        <div className="relative px-5">
+          <p className="text-[9px] opacity-80 md:text-[10px]">SUSTAINABLE TODAY • HEALTHY TOMORROW</p>
+          <h2 className="mt-2 text-xl md:text-4xl">Supporting Farmers. Nourishing Lives.</h2>
+          <a href="#" className="mt-5 inline-flex items-center gap-2 rounded-full border border-primary-foreground px-6 py-2 text-xs transition hover:bg-primary-foreground hover:text-plum">Our Commitment <ArrowRight className="h-3 w-3" /></a>
+        </div>
       </section>
     </main>
   );
