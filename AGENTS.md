@@ -11,3 +11,4 @@
 
 - Keep homepage slide behavior in the HomeHero component using the shared Embla carousel, so swipe, keyboard, arrows and pagination share one selected-slide state.
 - Keep mobile picture framing and painting clearance in the global homepage layout styles, so artwork remains separate from readable copy across phone widths.
+- Keep homepage section navigation as in-page anchors and share one menu state between the two header controls, so both menus close on section selection.
