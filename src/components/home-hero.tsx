@@ -46,7 +46,7 @@ export function HomeHero({ children }: { children: React.ReactNode }) {
         <Button variant="ghost" size="icon" onClick={() => api?.scrollPrev()} aria-label="Previous slide" title="Previous slide" className="rounded-full border border-foreground/30 bg-cream/60"><ArrowLeft /></Button>
         <Button variant="ghost" size="icon" onClick={() => api?.scrollNext()} aria-label="Next slide" title="Next slide" className="rounded-full border border-foreground/30 bg-cream/60"><ArrowRight /></Button>
       </div>
-      <Button asChild variant="ghost" size="icon" className="absolute bottom-7 right-5 z-10 h-11 w-11 rounded-full border border-primary-foreground text-primary-foreground hover:bg-plum/40 hover:text-primary-foreground md:right-12">
+      <Button asChild variant="ghost" size="icon" className="hero-scroll absolute z-10 rounded-full border border-primary-foreground text-primary-foreground hover:bg-plum/40 hover:text-primary-foreground">
         <a href="#story" aria-label="Scroll to our story"><ArrowDown /></a>
       </Button>
     </Carousel>
