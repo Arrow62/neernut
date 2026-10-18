@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep homepage slide behavior in the HomeHero component using the shared Embla carousel, so swipe, keyboard, arrows and pagination share one selected-slide state.
+- Keep mobile picture framing and painting clearance in the global homepage layout styles, so artwork remains separate from readable copy across phone widths.
