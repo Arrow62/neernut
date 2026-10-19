@@ -4,10 +4,11 @@ import { ArrowRight, X, Leaf, Flower2, Sun, ShieldCheck, Sprout, Heart, Activity
 import { HomeHero } from "@/components/home-hero";
 import { Button } from "@/components/ui/button";
 import story from "@/assets/story.jpg";
-import art from "@/assets/mithila-border.png";
+import art from "@/assets/mithila-red.png";
 import banner from "@/assets/banner.jpg";
-import water from "@/assets/water.jpg";
-import premium from "@/assets/p-premium.jpg";
+import water from "@/assets/makhana-pond.jpeg.asset.json";
+import premium from "@/assets/premium-cutout.png";
+import { OrderInquiry } from "@/components/order-inquiry";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
@@ -21,7 +22,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const navigation = [ ["Home", "#home"], ["Our Story", "#story"], ["Our Makhana", "#products"], ["Nutrition & Wellness", "#wellness"], ["Sustainable Sourcing", "#sourcing"] ];
+const navigation = [ ["Home", "#home"], ["Our Story", "#story"], ["Our Makhana", "#products"], ["Nutrition & Wellness", "#wellness"], ["Sustainable Sourcing", "#sourcing"], ["Order Inquiry", "#inquiry"] ];
 const wellness = [
   { icon: Activity, number: "01", title: "Sustained Energy & Satiety", text: "Complex carbohydrates and dietary fiber provide sustained energy. A low glycemic index makes makhana a thoughtful addition to balanced meals and mindful snacking." },
   { icon: Heart, number: "02", title: "Cardiac & Bone Health", text: "Naturally low in sodium, with potassium and magnesium—minerals that contribute to normal blood pressure, heart function and bone health." },
@@ -47,17 +48,8 @@ function Index() {
       </nav>}
     </HomeHero>
 
-    <section aria-label="Our promise" className="bg-cream">
-      <div className="page-container py-10 md:py-14">
-        <p className="mx-auto max-w-3xl text-center font-display text-2xl leading-snug md:text-3xl">100% natural, GI-tagged authentic Mithila foxnuts—hand-harvested from pristine freshwater wetlands, sun-dried, and traditionally popped to crunchy perfection.</p>
-        <div className="trust-grid mt-9 grid grid-cols-2 gap-x-6 gap-y-7 border-t border-plum/15 pt-7 md:grid-cols-4">
-          {[[ShieldCheck, "Authentic Mithila Origin", "GI Certified Region"], [Sprout, "High Protein & Dietary Fiber", "Naturally wholesome"], [Leaf, "Zero Trans Fat", "Cholesterol Free · Non-GMO"], [HandHeart, "Direct from Local", "Farmer Collectives"]].map(([I, title, text]) => { const Icon = I as typeof Leaf; return <div key={title as string} className="flex flex-col items-center text-center"><Icon className="mb-3 h-6 w-6 text-plum" strokeWidth={1.3} /><p className="text-xs font-medium leading-relaxed">{title as string}</p><p className="mt-1 text-[11px] leading-relaxed text-muted-foreground">{text as string}</p></div>; })}
-        </div>
-      </div>
-    </section>
-
     <section id="story" className="story-section relative bg-cream">
-      <img src={art} alt="Slender Mithila fish and lotus painting" width={512} height={1536} loading="lazy" className="story-art absolute" />
+      <img src={art} alt="Slender Mithila fish and lotus painting" width={512} height={2064} loading="lazy" className="story-art absolute" />
       <div className="story-layout relative mx-auto grid max-w-7xl gap-7 md:grid-cols-[1fr_1.15fr] md:items-center">
         <div className="story-copy min-w-0">
           <p className="section-label">OUR STORY</p>
@@ -71,6 +63,23 @@ function Index() {
       </div>
     </section>
 
+    <section id="products" className="relative bg-aqua">
+      <img src={water.url} alt="" aria-hidden="true" width={1280} height={720} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+      <div className="page-container relative grid items-center gap-9 py-14 md:grid-cols-2 md:gap-20 md:py-20">
+        <div><p className="section-label">OUR MAKHANA</p><h2 className="mt-3 text-4xl font-semibold leading-[1.08] md:text-5xl">Nature’s Goodness<br />in Every Bite</h2><p className="mt-5 max-w-md text-sm leading-7 text-muted-foreground">Light, crisp and full of nutrition—our premium makhana is carefully selected and naturally processed to bring you the best, straight from Mithila.</p><a href="#wellness" className="mt-6 inline-flex items-center gap-2 border-b border-plum pb-1 text-sm text-plum">Naturally nourishing <ArrowRight className="h-4 w-4" /></a></div>
+        <article className="product-display"><img src={premium} alt="A bowl of premium snow-white Mithila makhana" width={896} height={752} loading="lazy" className="product-cutout w-full object-contain" /><div className="flex items-center justify-between gap-4 py-6"><div><h3 className="text-2xl font-semibold">Premium Makhana</h3><p className="mt-1 text-xs text-muted-foreground">Pure · Natural · Nutritious</p><Button asChild className="mt-5 rounded-full"><a href="#inquiry">Ask about ordering <ArrowRight /></a></Button></div><Leaf className="h-7 w-7 shrink-0 text-plum" strokeWidth={1.2} /></div></article>
+      </div>
+    </section>
+
+    <section aria-label="Our promise" className="bg-cream">
+      <div className="page-container py-10 md:py-14">
+        <p className="mx-auto max-w-3xl text-center font-display text-2xl leading-snug md:text-3xl">100% natural, GI-tagged authentic Mithila foxnuts—hand-harvested from pristine freshwater wetlands, sun-dried, and traditionally popped to crunchy perfection.</p>
+        <div className="trust-grid mt-9 grid grid-cols-2 gap-x-6 gap-y-7 border-t border-plum/15 pt-7 md:grid-cols-4">
+          {[[ShieldCheck, "Authentic Mithila Origin", "GI Certified Region"], [Sprout, "High Protein & Dietary Fiber", "Naturally wholesome"], [Leaf, "Zero Trans Fat", "Cholesterol Free · Non-GMO"], [HandHeart, "Direct from Local", "Farmer Collectives"]].map(([I, title, text]) => { const Icon = I as typeof Leaf; return <div key={title as string} className="flex flex-col items-center text-center"><Icon className="mb-3 h-6 w-6 text-plum" strokeWidth={1.3} /><p className="text-xs font-medium leading-relaxed">{title as string}</p><p className="mt-1 text-[11px] leading-relaxed text-muted-foreground">{text as string}</p></div>; })}
+        </div>
+      </div>
+    </section>
+
     <section className="bg-aqua/40">
       <div className="page-container grid gap-8 py-12 md:grid-cols-[0.8fr_1.2fr] md:gap-20 md:py-20">
         <div><p className="section-label">AN ANCIENT CRAFT</p><h2 className="mt-3 text-3xl font-semibold md:text-4xl">From calm waters<br />to crunchy perfection.</h2></div>
@@ -78,15 +87,8 @@ function Index() {
       </div>
     </section>
 
-    <section id="products" className="relative bg-aqua">
-      <img src={water} alt="" aria-hidden="true" width={1280} height={720} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
-      <div className="page-container relative grid items-center gap-9 py-14 md:grid-cols-2 md:gap-20 md:py-20">
-        <div><p className="section-label">OUR MAKHANA</p><h2 className="mt-3 text-4xl font-semibold leading-[1.08] md:text-5xl">Nature’s Goodness<br />in Every Bite</h2><p className="mt-5 max-w-md text-sm leading-7 text-muted-foreground">Light, crisp and full of nutrition—our premium makhana is carefully selected and naturally processed to bring you the best, straight from Mithila.</p><a href="#wellness" className="mt-6 inline-flex items-center gap-2 border-b border-plum pb-1 text-sm text-plum">Naturally nourishing <ArrowRight className="h-4 w-4" /></a></div>
-        <article className="overflow-hidden rounded-lg bg-cream/95"><img src={premium} alt="A bowl of premium snow-white Mithila makhana" width={896} height={752} loading="lazy" className="aspect-[1.45] w-full object-cover" /><div className="flex items-center justify-between gap-4 p-6"><div><h3 className="text-2xl font-semibold">Premium Makhana</h3><p className="mt-1 text-xs text-muted-foreground">Pure · Natural · Nutritious</p></div><Leaf className="h-7 w-7 shrink-0 text-plum" strokeWidth={1.2} /></div></article>
-      </div>
-    </section>
-
-    <section id="wellness" className="bg-cream">
+    <section id="wellness" className="wellness-section relative overflow-hidden bg-cream">
+      <img src={art} alt="" aria-hidden="true" className="wellness-art" loading="lazy" />
       <div className="page-container py-14 md:py-20"><p className="section-label">NUTRITION & WELLNESS SPOTLIGHT</p><h2 className="mt-3 text-3xl font-semibold md:text-5xl">Why Nutritionists Choose Makhana</h2><div className="mt-10 grid gap-x-14 md:grid-cols-2">{wellness.map(({ icon: Icon, number, title, text }) => <article key={number} className="border-t border-plum/20 py-7"><div className="mb-4 flex items-center justify-between text-plum"><Icon className="h-7 w-7" strokeWidth={1.2} /><span className="text-xs tabular-nums">{number}</span></div><h3 className="text-2xl font-semibold">{title}</h3><p className="mt-3 max-w-lg text-sm leading-7 text-muted-foreground">{text}</p></article>)}</div></div>
     </section>
 
@@ -94,6 +96,7 @@ function Index() {
       <img src={banner} alt="" aria-hidden="true" width={1536} height={512} loading="lazy" className="absolute inset-0 h-full w-full object-cover" /><div className="absolute inset-0 bg-plum/85" />
       <div className="page-container relative grid gap-9 py-16 md:grid-cols-[1fr_1.1fr] md:gap-20 md:py-24"><div><p className="text-[10px] font-semibold">QUALITY & SUSTAINABLE SOURCING</p><h2 className="mt-4 text-4xl font-semibold leading-[1.1] md:text-5xl">Empowering the Hands that Harvest.</h2></div><div><p className="text-sm leading-7 text-primary-foreground/90">Makhana harvesting is an artisanal, labor-intensive craft performed by regional communities (Mallah). By shortening supply chains and eliminating layered middlemen, NeerNut ensures transparent market pricing for pond-growers while delivering batch-tested, clean-label foxnuts to your door.</p><div className="mt-7 flex items-center gap-3 border-t border-primary-foreground/25 pt-5"><HandHeart className="h-8 w-8 shrink-0" strokeWidth={1.2} /><p className="font-display text-xl">Supporting Farmers. Nourishing Lives.</p></div></div></div>
     </section>
+    <OrderInquiry />
     <footer className="page-container flex flex-wrap items-center justify-between gap-4 py-7"><a href="#home" className="font-display text-2xl font-semibold text-plum">NEER-NUT</a><p className="text-[10px] text-muted-foreground">PURE · NATURAL · MITHILA</p><a href="#home" className="text-xs text-plum">Back to top ↑</a></footer>
   </main>;
 }
