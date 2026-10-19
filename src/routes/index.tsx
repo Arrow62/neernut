@@ -3,10 +3,11 @@ import { useState } from "react";
 import { ArrowRight, X, Leaf, Flower2, Sun, ShieldCheck, Sprout, Heart, Activity, Sparkles, Wheat, Waves, HandHeart } from "lucide-react";
 import { HomeHero } from "@/components/home-hero";
 import { Button } from "@/components/ui/button";
-import story from "@/assets/story.jpg";
-import art from "@/assets/mithila-red.png";
+import art from "@/assets/mithila-minimal.png";
 import banner from "@/assets/banner.jpg";
-import water from "@/assets/makhana-pond.jpeg.asset.json";
+import water from "@/assets/hero-pond.png.asset.json";
+import wellnessBg from "@/assets/wellness-bg.jpeg.asset.json";
+import farming from "@/assets/makhana-pond-farming.mp4.asset.json";
 import premium from "@/assets/premium-cutout.png";
 import { OrderInquiry } from "@/components/order-inquiry";
 
@@ -49,7 +50,7 @@ function Index() {
     </HomeHero>
 
     <section id="story" className="story-section relative bg-cream">
-      <img src={art} alt="Slender Mithila fish and lotus painting" width={512} height={2064} loading="lazy" className="story-art absolute" />
+      <img src={art} alt="Minimal red Mithila fish and lotus painting" width={640} height={1920} loading="lazy" className="story-art absolute" />
       <div className="story-layout relative mx-auto grid max-w-7xl gap-7 md:grid-cols-[1fr_1.15fr] md:items-center">
         <div className="story-copy min-w-0">
           <p className="section-label">OUR STORY</p>
@@ -58,7 +59,7 @@ function Index() {
           <p className="mt-5 text-sm leading-relaxed text-muted-foreground">The freshwater ecosystems (pokhars) of Mithila possess the ideal microclimate and mineral-rich sediment required to grow the world’s finest Gorgon nut (<i>Euryale ferox</i>). At NeerNut, we honor this legacy.</p>
         </div>
         <figure className="story-film overflow-hidden rounded-lg">
-          <img src={story} alt="Lotus leaves and flowers adorned with Mithila folk patterns" width={1280} height={720} loading="lazy" className="aspect-[4/3] w-full object-cover" />
+          <video src={farming.url} autoPlay muted loop playsInline preload="metadata" aria-label="Makhana pond farming footage" className="aspect-video w-full object-cover" />
         </figure>
       </div>
     </section>
@@ -88,8 +89,9 @@ function Index() {
     </section>
 
     <section id="wellness" className="wellness-section relative overflow-hidden bg-cream">
-      <img src={art} alt="" aria-hidden="true" className="wellness-art" loading="lazy" />
-      <div className="page-container py-14 md:py-20"><p className="section-label">NUTRITION & WELLNESS SPOTLIGHT</p><h2 className="mt-3 text-3xl font-semibold md:text-5xl">Why Nutritionists Choose Makhana</h2><div className="mt-10 grid gap-x-14 md:grid-cols-2">{wellness.map(({ icon: Icon, number, title, text }) => <article key={number} className="border-t border-plum/20 py-7"><div className="mb-4 flex items-center justify-between text-plum"><Icon className="h-7 w-7" strokeWidth={1.2} /><span className="text-xs tabular-nums">{number}</span></div><h3 className="text-2xl font-semibold">{title}</h3><p className="mt-3 max-w-lg text-sm leading-7 text-muted-foreground">{text}</p></article>)}</div></div>
+      <img src={wellnessBg.url} alt="" aria-hidden="true" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+      <div className="absolute inset-0 bg-cream/70" />
+      <div className="page-container relative py-14 md:py-20"><p className="section-label">NUTRITION & WELLNESS SPOTLIGHT</p><h2 className="mt-3 text-3xl font-semibold md:text-5xl">Why Nutritionists Choose Makhana</h2><div className="mt-10 grid gap-x-14 md:grid-cols-2">{wellness.map(({ icon: Icon, number, title, text }) => <article key={number} className="border-t border-plum/20 py-7"><div className="mb-4 flex items-center justify-between text-plum"><Icon className="h-7 w-7" strokeWidth={1.2} /><span className="text-xs tabular-nums">{number}</span></div><h3 className="text-2xl font-semibold">{title}</h3><p className="mt-3 max-w-lg text-sm leading-7 text-muted-foreground">{text}</p></article>)}</div></div>
     </section>
 
     <section id="sourcing" className="relative bg-plum text-primary-foreground">
