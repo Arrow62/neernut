@@ -3,10 +3,11 @@ import { useState } from "react";
 import { ArrowRight, X, Leaf, Flower2, Sun, ShieldCheck, Sprout, Heart, Activity, Sparkles, Wheat, Waves, HandHeart } from "lucide-react";
 import { HomeHero } from "@/components/home-hero";
 import { Button } from "@/components/ui/button";
-import story from "@/assets/story.jpg";
-import art from "@/assets/mithila-red.png";
+import art from "@/assets/mithila-minimal.png";
 import banner from "@/assets/banner.jpg";
-import water from "@/assets/makhana-pond.jpeg.asset.json";
+import water from "@/assets/hero-pond.png.asset.json";
+import wellnessBg from "@/assets/wellness-bg.jpeg.asset.json";
+import farming from "@/assets/makhana-pond-farming.mp4.asset.json";
 import premium from "@/assets/premium-cutout.png";
 import { OrderInquiry } from "@/components/order-inquiry";
 
