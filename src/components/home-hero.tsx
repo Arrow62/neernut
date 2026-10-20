@@ -25,12 +25,12 @@ export function HomeHero({ children }: { children: React.ReactNode }) {
             <div className="hero-picture" aria-hidden="true">
               <img src={pond.url} alt="" className="hero-photo" width={1194} height={768} fetchPriority={slide === 0 ? "high" : "auto"} />
             </div>
-            <div className="hero-wash absolute inset-0 pointer-events-none" />
             <div className="hero-copy relative z-10">
+              <div className="hero-wash pointer-events-none" aria-hidden="true" />
               <p className="text-[10px] font-semibold sm:text-xs">FROM THE PONDS OF MITHILA</p>
               {slide === 0 ? <h1 className="hero-title">Nature’s Pearl,<br />Mithila’s Pride</h1> : <h2 className="hero-title">Nature’s Pearl,<br />Mithila’s Pride</h2>}
-              <p className="hero-description text-foreground/85">Authentic Mithila makhana. Hand-harvested, traditionally popped, naturally wholesome.</p>
-              <Button asChild tabIndex={selected === slide ? 0 : -1} className="hero-cta rounded-full">
+              <p className="hero-description text-foreground/85">From Mithila’s freshwater ponds to your everyday rituals. Hand-harvested, sun-dried and traditionally popped—pure, light and naturally wholesome makhana.</p>
+              <Button asChild variant="outline" tabIndex={selected === slide ? 0 : -1} className="hero-cta rounded-full border-plum/60 bg-transparent text-plum hover:bg-cream/30">
                 <a href="#products">Explore Our Makhana <ArrowRight /></a>
               </Button>
             </div>
