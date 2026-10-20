@@ -1,5 +1,5 @@
 # Homepage refinements
-- [x] Smaller header, 11:9 hero and clear picture/copy separation.
-- [x] Story second with large transparent red Mithila artwork; products third with supplied pond and transparent bowl.
-- [x] Theme details and working Premium Makhana inquiry form.
-- [x] Verify phone, desktop, carousel and inquiry submission.
+- [x] Lower and refine hero copy, transparent Explore button and localized subtle haze.
+- [x] Larger red lotus-and-fish Mithila painting, clear of story copy.
+- [x] Center lotus-leaf makhana display and modern product information; clear pond background.
+- [x] Verify phone and desktop layouts, carousel and ordering link.

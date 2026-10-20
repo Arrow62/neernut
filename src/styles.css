@@ -160,12 +160,12 @@
 @keyframes bob { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-8px) } }
 @utility animate-bob { animation: bob 6s ease-in-out infinite; }
 
-/* The pond and each slide share a 11:9 frame; artwork never sits under copy. */
+/* The pond and each slide share a 9:13 frame; artwork never sits under copy. */
 .home-hero { overflow: hidden; }
 .home-hero [data-slot="carousel-content"] { align-items: stretch; }
 .hero-picture { position: absolute; inset: 0; overflow: hidden; background: var(--aqua); }
 .hero-photo { width: 100%; height: 100%; object-fit: cover; object-position: center; }
-.hero-wash { background: linear-gradient(90deg, color-mix(in oklch, var(--cream) 92%, transparent), color-mix(in oklch, var(--cream) 65%, transparent) 31%, transparent 62%), linear-gradient(180deg, color-mix(in oklch, var(--cream) 40%, transparent), transparent 35%); }
+.hero-wash { position: absolute; z-index: -1; left: -20px; top: -24px; width: calc(100% + 48px); height: calc(100% + 48px); background: radial-gradient(ellipse at 35% 45%, color-mix(in oklch, var(--cream) 70%, transparent) 15%, color-mix(in oklch, var(--cream) 40%, transparent) 52%, transparent 74%); }
 .hero-copy { aspect-ratio: 9 / 13; width: 100%; padding: 84px 20px 0; }
 .hero-title { margin-top: 8px; font-size: 28px; font-weight: 600; line-height: 1.02; max-width: 56%; }
 .hero-description { margin-top: 10px; max-width: 43%; font-size: 11px; line-height: 1.5; }
@@ -242,34 +242,49 @@
 .hero-copy { padding-top: 82px; }
 .hero-title { max-width: 58%; font-size: 30px; line-height: 1.05; }
 .hero-description { max-width: 46%; font-size: 11px; line-height: 1.55; }
-.hero-wash { background: linear-gradient(90deg, var(--cream), color-mix(in oklch, var(--cream) 86%, transparent) 30%, transparent 64%); }
-.story-art { left: 0; top: 30px; width: 100px; height: calc(100% - 60px); object-fit: contain; object-position: left; }
-.story-layout { padding: 36px 22px 42px 130px; }
+.hero-copy { isolation: isolate; aspect-ratio: auto; width: 48%; padding: 0; margin: 126px 0 0 20px; }
+.home-hero [aria-roledescription="slide"] { aspect-ratio: 9 / 13; }
+.hero-title { max-width: none; font-size: 34px; line-height: 1.06; margin-top: 12px; }
+.hero-description { max-width: none; font-size: 12px; line-height: 1.75; margin-top: 18px; }
+.hero-copy > p:first-of-type { font-size: 9px; }
+.hero-cta { margin-top: 22px; height: 38px; font-size: 11px; padding-inline: 14px; box-shadow: none; }
+.story-art { left: -2px; top: 2.5%; width: 116px; height: 95%; object-fit: fill; object-position: left; }
+.story-layout { padding: 40px 22px 46px 142px; }
 .story-copy h2 { font-size: 28px; line-height: 1.12; }
 .story-copy blockquote { font-size: 20px; }
 .story-copy p:last-child { font-size: 12px; line-height: 1.8; }
 .story-film video { aspect-ratio: 16 / 9; display: block; }
 .product-display { background: transparent; }
-.product-cutout { aspect-ratio: 1.2; max-height: 440px; }
+.product-cutout { aspect-ratio: 1; max-height: 480px; max-width: 520px; }
 #products > img { object-position: center; }
-#products .page-container { background: color-mix(in oklch, var(--cream) 55%, transparent); border-radius: 12px; }
+#products .page-container { background: transparent; }
+.product-layout { display: flex; flex-direction: column; align-items: center; gap: 28px; }
+.product-intro { max-width: 540px; text-align: center; }
+.product-display { width: min(100%, 560px); }
+.product-details { padding: 20px 12px; max-width: 430px; margin-inline: auto; }
+.localized-haze { position: relative; isolation: isolate; }
+.localized-haze::before { content: ""; position: absolute; z-index: -1; inset: -24px -20px; pointer-events: none; background: radial-gradient(ellipse, color-mix(in oklch, var(--cream) 87%, transparent) 26%, color-mix(in oklch, var(--cream) 68%, transparent) 50%, transparent 74%); }
 .wellness-art { position: absolute; right: -25px; top: 0; height: 100%; width: 130px; object-fit: cover; opacity: .07; pointer-events: none; }
 .wellness-section .page-container { position: relative; }
 .inquiry-section { border-top: 1px solid color-mix(in oklch, var(--plum) 18%, transparent); }
 .inquiry-section input, .inquiry-section textarea { background: transparent; border-color: color-mix(in oklch, var(--plum) 28%, transparent); border-radius: 4px; font-size: 16px; }
 @media (max-width: 400px) {
-  .hero-copy { padding-top: 64px; }
-  .hero-title { font-size: 25px; }
-  .hero-description { font-size: 10px; max-width: 49%; }
-  .story-art { width: 80px; left: 0; }
-  .story-layout { padding-left: 104px; padding-right: 18px; }
+  .hero-copy { margin-top: 100px; margin-left: 16px; width: 52%; padding: 0; }
+  .hero-title { font-size: 27px; max-width: none; }
+  .hero-description { font-size: 11px; max-width: none; line-height: 1.6; margin-top: 14px; }
+  .hero-cta { margin-top: 16px; height: 34px; font-size: 10px; }
+  .hero-copy > p:first-of-type { font-size: 8px; }
+  .story-art { width: 88px; left: -2px; }
+  .story-layout { padding-left: 108px; padding-right: 18px; }
 }
 @media (min-width: 768px) {
-  .hero-copy { padding-top: 19%; }
-  .hero-title { font-size: 58px; max-width: 52%; }
-  .hero-description { font-size: 15px; max-width: 34%; }
-  .story-art { width: 145px; left: 0; top: 40px; height: calc(100% - 80px); object-fit: contain; object-position: left; }
-  .story-layout { padding: 70px 48px 70px 200px; }
+  .hero-copy { margin: 23% 0 0 48px; padding: 0; width: 38%; max-width: 470px; }
+  .hero-title { font-size: 58px; max-width: none; }
+  .hero-description { font-size: 15px; max-width: 350px; line-height: 1.8; }
+  .hero-copy > p:first-of-type { font-size: 11px; }
+  .hero-cta { margin-top: 28px; height: 44px; font-size: 13px; padding-inline: 22px; }
+  .story-art { width: 166px; left: -2px; top: 2.5%; height: 95%; object-fit: fill; }
+  .story-layout { padding: 70px 48px 70px 212px; }
   .story-copy h2 { font-size: 44px; }
   .story-copy blockquote { font-size: 24px; }
   .story-copy p:last-child { font-size: 14px; }
@@ -278,5 +293,6 @@
 @media (min-width: 1280px) {
   .hero-title { font-size: 72px; }
   .hero-description { max-width: 340px; font-size: 16px; }
-  .story-art { left: 0; }
+  .hero-copy { margin-left: 96px; }
+  .story-art { left: -2px; }
 }

@@ -3,12 +3,12 @@ import { useState } from "react";
 import { ArrowRight, X, Leaf, Flower2, Sun, ShieldCheck, Sprout, Heart, Activity, Sparkles, Wheat, Waves, HandHeart } from "lucide-react";
 import { HomeHero } from "@/components/home-hero";
 import { Button } from "@/components/ui/button";
-import art from "@/assets/mithila-minimal.png";
+import art from "@/assets/mithila-lotus-fish.png";
 import banner from "@/assets/banner.jpg";
 import water from "@/assets/hero-pond.png.asset.json";
 import wellnessBg from "@/assets/wellness-bg.jpeg.asset.json";
 import farming from "@/assets/makhana-pond-farming.mp4.asset.json";
-import premium from "@/assets/premium-cutout.png";
+import premium from "@/assets/makhana-leaf-product.png";
 import { OrderInquiry } from "@/components/order-inquiry";
 
 export const Route = createFileRoute("/")({
@@ -50,7 +50,7 @@ function Index() {
     </HomeHero>
 
     <section id="story" className="story-section relative bg-cream">
-      <img src={art} alt="Minimal red Mithila fish and lotus painting" width={640} height={1920} loading="lazy" className="story-art absolute" />
+      <img src={art} alt="Red Mithila painting of lotus blossoms and ornamental fish" width={512} height={2064} loading="lazy" className="story-art absolute" />
       <div className="story-layout relative mx-auto grid max-w-7xl gap-7 md:grid-cols-[1fr_1.15fr] md:items-center">
         <div className="story-copy min-w-0">
           <p className="section-label">OUR STORY</p>
@@ -66,9 +66,9 @@ function Index() {
 
     <section id="products" className="relative bg-aqua">
       <img src={water.url} alt="" aria-hidden="true" width={1280} height={720} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
-      <div className="page-container relative grid items-center gap-9 py-14 md:grid-cols-2 md:gap-20 md:py-20">
-        <div><p className="section-label">OUR MAKHANA</p><h2 className="mt-3 text-4xl font-semibold leading-[1.08] md:text-5xl">Nature’s Goodness<br />in Every Bite</h2><p className="mt-5 max-w-md text-sm leading-7 text-muted-foreground">Light, crisp and full of nutrition—our premium makhana is carefully selected and naturally processed to bring you the best, straight from Mithila.</p><a href="#wellness" className="mt-6 inline-flex items-center gap-2 border-b border-plum pb-1 text-sm text-plum">Naturally nourishing <ArrowRight className="h-4 w-4" /></a></div>
-        <article className="product-display"><img src={premium} alt="A bowl of premium snow-white Mithila makhana" width={896} height={752} loading="lazy" className="product-cutout w-full object-contain" /><div className="flex items-center justify-between gap-4 py-6"><div><h3 className="text-2xl font-semibold">Premium Makhana</h3><p className="mt-1 text-xs text-muted-foreground">Pure · Natural · Nutritious</p><Button asChild className="mt-5 rounded-full"><a href="#inquiry">Ask about ordering <ArrowRight /></a></Button></div><Leaf className="h-7 w-7 shrink-0 text-plum" strokeWidth={1.2} /></div></article>
+      <div className="page-container product-layout relative py-14 md:py-20">
+        <div className="product-intro localized-haze"><p className="section-label">OUR MAKHANA</p><h2 className="mt-3 text-4xl font-semibold leading-[1.08] md:text-5xl">Nature’s Goodness<br />in Every Bite</h2><p className="mx-auto mt-5 max-w-md text-sm leading-7 text-foreground/85">Light, crisp and naturally wholesome. Carefully selected and traditionally popped, straight from Mithila.</p><a href="#wellness" className="mt-5 inline-flex items-center gap-2 border-b border-plum pb-1 text-sm text-plum">Naturally nourishing <ArrowRight className="h-4 w-4" /></a></div>
+        <article className="product-display mx-auto text-center"><img src={premium} alt="Premium white Mithila makhana served on a fresh green lotus leaf" width={1024} height={1024} loading="lazy" className="product-cutout mx-auto w-full object-contain" /><div className="product-details localized-haze"><div className="mb-3 flex items-center justify-center gap-2 text-plum"><Leaf className="h-4 w-4" strokeWidth={1.3} /><p className="section-label">THE MITHILA ORIGINAL</p></div><h3 className="text-3xl font-semibold md:text-4xl">Premium Makhana</h3><p className="mt-3 text-xs text-foreground/85">Pure · Natural · Traditionally popped</p><div className="mx-auto mt-5 flex max-w-sm items-center justify-center gap-5 border-y border-plum/20 py-3 text-xs text-plum"><span>Hand-harvested</span><span aria-hidden="true">·</span><span>Sun-dried</span></div><Button asChild variant="outline" className="mt-6 rounded-full border-plum/60 bg-transparent text-plum hover:bg-cream/40"><a href="#inquiry">Ask about ordering <ArrowRight /></a></Button></div></article>
       </div>
     </section>
 
