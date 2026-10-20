@@ -243,7 +243,7 @@
 .hero-title { max-width: 58%; font-size: 30px; line-height: 1.05; }
 .hero-description { max-width: 46%; font-size: 11px; line-height: 1.55; }
 .hero-copy { isolation: isolate; aspect-ratio: auto; width: 48%; padding: 0; margin: 126px 0 0 20px; }
-.home-hero [data-slot="carousel-item"] { aspect-ratio: 9 / 13; }
+.home-hero [aria-roledescription="slide"] { aspect-ratio: 9 / 13; }
 .hero-title { max-width: none; font-size: 34px; line-height: 1.06; margin-top: 12px; }
 .hero-description { max-width: none; font-size: 12px; line-height: 1.75; margin-top: 18px; }
 .hero-copy > p:first-of-type { font-size: 9px; }
