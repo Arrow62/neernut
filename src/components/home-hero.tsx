@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowDown, ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
@@ -7,6 +7,42 @@ import pond from "@/assets/hero-pond.png.asset.json";
 export function HomeHero({ children }: { children: React.ReactNode }) {
   const [api, setApi] = useState<CarouselApi>();
   const [selected, setSelected] = useState(0);
+  const scene = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const element = scene.current;
+    if (!element || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let frame = 0;
+    let x = 0;
+    let y = 0;
+    const render = () => {
+      const bounds = element.getBoundingClientRect();
+      const offset = Math.max(-24, Math.min(70, -bounds.top * .085));
+      element.style.setProperty("--pond-x", `${x}px`);
+      element.style.setProperty("--pond-y", `${offset + y}px`);
+      element.style.setProperty("--copy-y", `${offset * -.22}px`);
+      frame = 0;
+    };
+    const schedule = () => { if (!frame) frame = requestAnimationFrame(render); };
+    const move = (event: PointerEvent) => {
+      if (event.pointerType !== "mouse") return;
+      const bounds = element.getBoundingClientRect();
+      x = ((event.clientX - bounds.left) / bounds.width - .5) * -12;
+      y = ((event.clientY - bounds.top) / bounds.height - .5) * -10;
+      schedule();
+    };
+    const reset = () => { x = 0; y = 0; schedule(); };
+    window.addEventListener("scroll", schedule, { passive: true });
+    element.addEventListener("pointermove", move);
+    element.addEventListener("pointerleave", reset);
+    schedule();
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", schedule);
+      element.removeEventListener("pointermove", move);
+      element.removeEventListener("pointerleave", reset);
+    };
+  }, []);
 
   useEffect(() => {
     if (!api) return;
@@ -18,6 +54,7 @@ export function HomeHero({ children }: { children: React.ReactNode }) {
   }, [api]);
 
   return (
+    <div ref={scene} className="pond-scene">
     <Carousel opts={{ loop: true }} setApi={setApi} aria-label="NEER-NUT highlights" className="home-hero bg-aqua">
       <CarouselContent className="ml-0">
         {[0, 1, 2].map((slide) => (
@@ -50,5 +87,6 @@ export function HomeHero({ children }: { children: React.ReactNode }) {
         <a href="#story" aria-label="Scroll to our story"><ArrowDown /></a>
       </Button>
     </Carousel>
+    </div>
   );
 }
