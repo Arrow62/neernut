@@ -10,6 +10,7 @@
 <!-- LOVABLE:END -->
 
 - Keep homepage slide behavior in the HomeHero component using the shared Embla carousel, so swipe, keyboard, arrows and pagination share one selected-slide state.
+- Keep hero parallax in HomeHero using animation-frame CSS variables and respect reduced motion, so scene movement never interferes with carousel navigation or readability.
 - Keep mobile picture framing and painting clearance in the global homepage layout styles, so artwork remains separate from readable copy across phone widths.
 - Keep homepage section navigation as in-page anchors and share one menu state between the two header controls, so both menus close on section selection.
 - Keep inquiry validation in a shared Zod schema and submit through a public server function using an insert-only RLS client; shopper contact details must never be publicly readable.
