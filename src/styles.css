@@ -298,7 +298,7 @@
 }
 
 /* Calm water depth: the photograph moves independently of the readable copy. */
-.pond-scene { --pond-x: 0px; --pond-y: 0px; --copy-y: 0px; }
+.pond-scene { --pond-x: 0px; --pond-y: 0px; --copy-y: 0px; --foreground-y: 0px; --art-y: 0px; }
 .hero-photo { transform: translate3d(var(--pond-x), var(--pond-y), 0) scale(1.12); will-change: transform; }
 .hero-copy { transform: translate3d(0, var(--copy-y), 0); }
 .hero-copy > :not(.hero-wash) { animation: float-up 1s cubic-bezier(.2,.7,.2,1) both; }
@@ -329,4 +329,27 @@
 @media (prefers-reduced-motion: reduce) {
   .hero-photo { transform: none; will-change: auto; }
   .hero-copy { transform: none; }
+}
+
+/* Full-screen depth layers stay outside the copy and carousel hit targets. */
+.home-hero, .home-hero [aria-roledescription="slide"] { height: 100svh; min-height: 560px; aspect-ratio: auto; }
+.home-hero [data-slot="carousel-content"] { height: 100%; }
+.hero-photo { transform: translate3d(var(--pond-x), var(--pond-y), 0) scale(1.22); transform-origin: center bottom; }
+.hero-copy { margin-top: max(120px, 19svh); }
+.hero-depth-layers { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.hero-leaf-layer { position: absolute; width: 58%; max-width: 540px; right: -4%; bottom: 9%; object-fit: contain; transform: translate3d(0, var(--foreground-y), 0) rotate(-8deg); will-change: transform; }
+.hero-mithila-layer { position: absolute; width: 48px; height: 28%; right: -14px; top: 20%; object-fit: contain; opacity: .45; transform: translate3d(0, var(--art-y), 0); }
+@media (min-width: 768px) {
+  .hero-copy { margin-top: max(140px, 25svh); }
+  .hero-leaf-layer { width: 37%; right: 6%; bottom: 5%; }
+  .hero-mithila-layer { width: 84px; height: 42%; right: -12px; top: 18%; }
+}
+@media (max-height: 650px) {
+  .hero-copy { margin-top: 95px; }
+  .hero-title { font-size: 32px; }
+  .hero-description { font-size: 11px; line-height: 1.55; margin-top: 12px; }
+  .hero-cta { margin-top: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-photo, .hero-leaf-layer, .hero-mithila-layer { transform: none; will-change: auto; }
 }

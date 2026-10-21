@@ -3,6 +3,8 @@ import { ArrowDown, ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
 import pond from "@/assets/hero-pond.png.asset.json";
+import leafMakhana from "@/assets/makhana-leaf-product.png";
+import mithila from "@/assets/mithila-lotus-fish.png";
 
 export function HomeHero({ children }: { children: React.ReactNode }) {
   const [api, setApi] = useState<CarouselApi>();
@@ -17,10 +19,13 @@ export function HomeHero({ children }: { children: React.ReactNode }) {
     let y = 0;
     const render = () => {
       const bounds = element.getBoundingClientRect();
-      const offset = Math.max(-24, Math.min(70, -bounds.top * .085));
+      const progress = Math.max(0, Math.min(bounds.height, -bounds.top));
+      const offset = progress * .16;
       element.style.setProperty("--pond-x", `${x}px`);
       element.style.setProperty("--pond-y", `${offset + y}px`);
       element.style.setProperty("--copy-y", `${offset * -.22}px`);
+      element.style.setProperty("--foreground-y", `${progress * -.12}px`);
+      element.style.setProperty("--art-y", `${progress * .08}px`);
       frame = 0;
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(render); };
@@ -61,6 +66,10 @@ export function HomeHero({ children }: { children: React.ReactNode }) {
           <CarouselItem key={slide} className="relative pl-0" aria-label={`${slide + 1} of 3`} aria-hidden={selected !== slide}>
             <div className="hero-picture" aria-hidden="true">
               <img src={pond.url} alt="" className="hero-photo" width={1194} height={768} fetchPriority={slide === 0 ? "high" : "auto"} />
+            </div>
+            <div className="hero-depth-layers" aria-hidden="true">
+              <img src={mithila} alt="" width={512} height={2064} className="hero-mithila-layer" />
+              <img src={leafMakhana} alt="" width={1024} height={1024} className="hero-leaf-layer" />
             </div>
             <div className="hero-copy relative z-10">
               <div className="hero-wash pointer-events-none" aria-hidden="true" />
