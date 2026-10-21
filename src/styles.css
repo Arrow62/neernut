@@ -307,11 +307,13 @@
 .hero-copy > .hero-cta { animation-delay: .3s; }
 .hero-wash { inset: -22px -18px; width: auto; height: auto; background: radial-gradient(ellipse at 38% 46%, color-mix(in oklch, var(--card) 93%, transparent) 18%, color-mix(in oklch, var(--cream) 82%, transparent) 48%, transparent 76%); filter: blur(8px); }
 .hero-description { font-weight: 500; }
-.story-art { left: -2px; top: 68px; bottom: 46px; height: calc(100% - 114px); width: 96px; object-fit: contain; object-position: left center; mask-image: linear-gradient(to right, var(--foreground) 82%, transparent 100%); }
+.story-art { left: -2px; top: 68px; bottom: 46px; height: calc(100% - 114px); width: 96px; object-fit: fill; object-position: left center; mask-image: linear-gradient(to right, var(--foreground) 82%, transparent 100%); }
 .story-layout { padding-left: 122px; }
 .wellness-heading { width: fit-content; max-width: 100%; }
-.wellness-section .localized-haze::before { inset: -10px -12px; background: radial-gradient(ellipse, color-mix(in oklch, var(--cream) 92%, transparent) 25%, color-mix(in oklch, var(--cream) 76%, transparent) 56%, transparent 82%); filter: blur(5px); }
+.wellness-section .localized-haze::before { inset: -8px -10px; background: radial-gradient(ellipse, color-mix(in oklch, var(--cream) 55%, transparent) 20%, color-mix(in oklch, var(--cream) 30%, transparent) 56%, transparent 82%); filter: blur(5px); }
 .wellness-text { color: var(--foreground); }
+.wellness-benefit:nth-child(n+3) .wellness-text { color: var(--primary-foreground); }
+.wellness-benefit:nth-child(n+3) .localized-haze::before { background: radial-gradient(ellipse, color-mix(in oklch, var(--plum) 65%, transparent), transparent 80%); }
 .wellness-text p { font-weight: 500; }
 .wellness-benefit > div:first-child { color: var(--primary-foreground); }
 @media (max-width: 400px) {
@@ -321,6 +323,8 @@
 @media (min-width: 768px) {
   .story-art { top: 102px; bottom: 70px; height: calc(100% - 172px); width: 146px; }
   .story-layout { padding-left: 188px; }
+  .wellness-benefit:nth-child(n+3) .wellness-text { color: var(--foreground); }
+  .wellness-benefit:nth-child(n+3) .localized-haze::before { background: radial-gradient(ellipse, color-mix(in oklch, var(--cream) 60%, transparent) 25%, transparent 82%); }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-photo { transform: none; will-change: auto; }

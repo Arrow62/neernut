@@ -5,10 +5,9 @@ import { HomeHero } from "@/components/home-hero";
 import { Button } from "@/components/ui/button";
 import art from "@/assets/mithila-story-refined.png";
 import banner from "@/assets/banner.jpg";
-import water from "@/assets/hero-pond.png.asset.json";
 import productWater from "@/assets/makhana-water-new.jpeg.asset.json";
 import wellnessBg from "@/assets/wellness-bg.jpeg.asset.json";
-import farming from "@/assets/makhana-pond-farming.mp4.asset.json";
+import farming from "@/assets/pond-story.webm.asset.json";
 import premium from "@/assets/makhana-leaf-product.png";
 import { OrderInquiry } from "@/components/order-inquiry";
 
