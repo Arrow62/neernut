@@ -353,3 +353,37 @@
 @media (prefers-reduced-motion: reduce) {
   .hero-photo, .hero-leaf-layer, .hero-mithila-layer { transform: none; will-change: auto; }
 }
+
+/* Refined hero: background-only motion, no fog */
+.hero-depth-layers, .hero-wash { display: none; }
+.hero-picture { isolation: isolate; }
+.hero-photo { transform: translate3d(var(--pond-x), var(--pond-y), 0) scale(1.14); transform-origin: center; animation: pond-drift 26s ease-in-out infinite alternate; }
+.hero-picture::before { content: ""; position: absolute; inset: -10%; z-index: 1; pointer-events: none; mix-blend-mode: soft-light; opacity: .55;
+  background: radial-gradient(40% 18% at 30% 40%, color-mix(in oklch, var(--cream) 80%, transparent), transparent 70%), radial-gradient(30% 14% at 70% 65%, color-mix(in oklch, var(--cream) 70%, transparent), transparent 70%);
+  animation: water-light 14s ease-in-out infinite alternate; }
+.hero-picture::after { content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: linear-gradient(180deg, color-mix(in oklch, var(--cream) 55%, transparent) 0%, color-mix(in oklch, var(--cream) 22%, transparent) 30%, transparent 55%); }
+@keyframes pond-drift { from { scale: 1; translate: 0 0; } to { scale: 1.05; translate: -1.5% -1%; } }
+@keyframes water-light { 0% { transform: translate3d(-3%, 0, 0) scale(1); opacity: .35; } 50% { opacity: .6; } 100% { transform: translate3d(4%, 2%, 0) scale(1.08); opacity: .4; } }
+.hero-copy { width: auto; max-width: 340px; margin: max(104px, 15svh) 22px 0; }
+.hero-copy > p:first-of-type { font-size: 10px; letter-spacing: .22em; color: var(--foreground); }
+.hero-title { font-size: 40px; line-height: 1.04; font-weight: 500; margin-top: 14px; letter-spacing: -.01em; }
+.hero-description { font-size: 14px; line-height: 1.65; font-weight: 400; margin-top: 16px; max-width: 290px; color: color-mix(in oklch, var(--foreground) 88%, transparent); }
+.hero-cta { margin-top: 26px; height: 46px; padding-inline: 22px; font-size: 13px; letter-spacing: .02em; }
+.hero-copy .hero-title, .hero-copy .hero-description, .hero-copy > p:first-of-type { text-shadow: 0 1px 14px color-mix(in oklch, var(--cream) 90%, transparent); }
+@media (max-width: 360px) { .hero-title { font-size: 34px; } .hero-description { font-size: 13px; } }
+@media (min-width: 768px) { .hero-copy { max-width: 470px; margin: 20svh 0 0 56px; } .hero-title { font-size: 64px; } .hero-description { font-size: 16px; max-width: 380px; } .hero-picture::after { background: linear-gradient(90deg, color-mix(in oklch, var(--cream) 45%, transparent), transparent 50%); } }
+@media (min-width: 1280px) { .hero-copy { margin-left: 96px; } .hero-title { font-size: 76px; } }
+@media (prefers-reduced-motion: reduce) { .hero-photo, .hero-picture::before { animation: none; } }
+
+/* Our Makhana redesign */
+#products { background: var(--aqua); }
+#products > img { opacity: 1; }
+.product-layout { display: grid; gap: 40px; align-items: center; }
+.product-intro { text-align: left; max-width: 460px; }
+.product-intro p { margin-inline: 0 !important; }
+.product-intro::before, .product-details::before { display: none; }
+.product-display { width: min(100%, 380px); margin-inline: auto; border-radius: 200px 200px 24px 24px; background: color-mix(in oklch, var(--cream) 88%, transparent); border: 1px solid color-mix(in oklch, var(--plum) 18%, transparent); padding: 28px 22px 26px; box-shadow: 0 30px 60px -30px color-mix(in oklch, var(--plum) 45%, transparent); }
+.product-cutout { max-width: 300px; border-radius: 999px; background: radial-gradient(circle, color-mix(in oklch, var(--aqua) 70%, transparent) 55%, transparent 70%); }
+.product-details { padding: 12px 0 0; }
+@media (min-width: 768px) { .product-layout { grid-template-columns: 1fr 1fr; gap: 64px; } }

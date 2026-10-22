@@ -5,7 +5,7 @@ import { HomeHero } from "@/components/home-hero";
 import { Button } from "@/components/ui/button";
 import art from "@/assets/mithila-story-refined.png";
 import banner from "@/assets/banner.jpg";
-import productWater from "@/assets/makhana-water-new.jpeg.asset.json";
+import productBg from "@/assets/products-minimal-bg.jpg";
 import wellnessBg from "@/assets/wellness-bg.jpeg.asset.json";
 import farming from "@/assets/pond-story.webm.asset.json";
 import premium from "@/assets/makhana-leaf-product.png";
@@ -65,7 +65,7 @@ function Index() {
     </section>
 
     <section id="products" className="relative bg-aqua">
-      <img src={productWater.url} alt="" aria-hidden="true" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+      <img src={productBg} alt="" aria-hidden="true" width={1024} height={1536} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
       <div className="page-container product-layout relative py-14 md:py-20">
         <div className="product-intro localized-haze"><p className="section-label">OUR MAKHANA</p><h2 className="mt-3 text-4xl font-semibold leading-[1.08] md:text-5xl">Nature’s Goodness<br />in Every Bite</h2><p className="mx-auto mt-5 max-w-md text-sm leading-7 text-foreground/85">Light, crisp and naturally wholesome. Carefully selected and traditionally popped, straight from Mithila.</p><a href="#wellness" className="mt-5 inline-flex items-center gap-2 border-b border-plum pb-1 text-sm text-plum">Naturally nourishing <ArrowRight className="h-4 w-4" /></a></div>
         <article className="product-display mx-auto text-center"><img src={premium} alt="Premium white Mithila makhana served on a fresh green lotus leaf" width={1024} height={1024} loading="lazy" className="product-cutout mx-auto w-full object-contain" /><div className="product-details"><div className="mb-3 flex items-center justify-center gap-2 text-plum"><Leaf className="h-4 w-4" strokeWidth={1.3} /><p className="section-label">THE MITHILA ORIGINAL</p></div><h3 className="text-3xl font-semibold md:text-4xl">Premium Makhana</h3><p className="mt-3 text-xs text-foreground/85">Pure · Natural · Traditionally popped</p><div className="mx-auto mt-5 flex max-w-sm items-center justify-center gap-5 border-y border-plum/20 py-3 text-xs text-plum"><span>Hand-harvested</span><span aria-hidden="true">·</span><span>Sun-dried</span></div><Button asChild variant="outline" className="mt-6 rounded-full border-plum/60 bg-transparent text-plum hover:bg-cream/40"><a href="#inquiry">Ask about ordering <ArrowRight /></a></Button></div></article>

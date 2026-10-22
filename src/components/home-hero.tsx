@@ -3,8 +3,6 @@ import { ArrowDown, ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
 import pond from "@/assets/hero-pond.png.asset.json";
-import leafMakhana from "@/assets/makhana-leaf-product.png";
-import mithila from "@/assets/mithila-lotus-fish.png";
 
 export function HomeHero({ children }: { children: React.ReactNode }) {
   const [api, setApi] = useState<CarouselApi>();
@@ -67,16 +65,12 @@ export function HomeHero({ children }: { children: React.ReactNode }) {
             <div className="hero-picture" aria-hidden="true">
               <img src={pond.url} alt="" className="hero-photo" width={1194} height={768} fetchPriority={slide === 0 ? "high" : "auto"} />
             </div>
-            <div className="hero-depth-layers" aria-hidden="true">
-              <img src={mithila} alt="" width={512} height={2064} className="hero-mithila-layer" />
-              <img src={leafMakhana} alt="" width={1024} height={1024} className="hero-leaf-layer" />
-            </div>
             <div className="hero-copy relative z-10">
               <div className="hero-wash pointer-events-none" aria-hidden="true" />
               <p className="text-[10px] font-semibold sm:text-xs">FROM THE PONDS OF MITHILA</p>
               {slide === 0 ? <h1 className="hero-title">Nature’s Pearl,<br />Mithila’s Pride</h1> : <h2 className="hero-title">Nature’s Pearl,<br />Mithila’s Pride</h2>}
               <p className="hero-description text-foreground/85">From Mithila’s freshwater ponds to your everyday rituals. Hand-harvested, sun-dried and traditionally popped—pure, light and naturally wholesome makhana.</p>
-              <Button asChild variant="outline" tabIndex={selected === slide ? 0 : -1} className="hero-cta rounded-full border-plum/60 bg-transparent text-plum hover:bg-cream/30">
+              <Button asChild variant="outline" tabIndex={selected === slide ? 0 : -1} className="hero-cta rounded-full border-plum bg-plum text-primary-foreground hover:bg-plum/90 hover:text-primary-foreground">
                 <a href="#products">Explore Our Makhana <ArrowRight /></a>
               </Button>
             </div>
