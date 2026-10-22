@@ -387,3 +387,18 @@
 .product-cutout { max-width: 300px; border-radius: 999px; background: radial-gradient(circle, color-mix(in oklch, var(--aqua) 70%, transparent) 55%, transparent 70%); }
 .product-details { padding: 12px 0 0; }
 @media (min-width: 768px) { .product-layout { grid-template-columns: 1fr 1fr; gap: 64px; } }
+
+/* v3: hero framing, products and wellness redesign */
+.hero-photo { object-position: center top; }
+.hero-picture { will-change: transform; transform-origin: center top; }
+.hero-copy { margin-top: max(96px, 13svh); }
+#products { background: var(--cream); }
+#products > img { opacity: .9; }
+.product-display { background: color-mix(in oklch, var(--card) 70%, transparent); backdrop-filter: blur(6px); }
+.product-cutout { background: radial-gradient(circle, color-mix(in oklch, var(--aqua) 85%, transparent) 50%, transparent 70%); }
+.wellness-bg { opacity: 1; }
+.wellness-v2::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, transparent 50%, color-mix(in oklch, var(--plum) 35%, transparent)); }
+.wellness-v2 .page-container { z-index: 1; }
+.wellness-card { position: relative; padding: 26px 24px; border-radius: 20px; border: 1px solid color-mix(in oklch, var(--primary-foreground) 18%, transparent); background: color-mix(in oklch, var(--plum) 40%, transparent); backdrop-filter: blur(10px); transition: transform .5s cubic-bezier(.2,.7,.2,1), border-color .5s; }
+.wellness-card:hover { transform: translateY(-6px); border-color: color-mix(in oklch, var(--primary-foreground) 40%, transparent); }
+.wellness-icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; border: 1px solid color-mix(in oklch, var(--primary-foreground) 35%, transparent); }

@@ -5,8 +5,9 @@ import { HomeHero } from "@/components/home-hero";
 import { Button } from "@/components/ui/button";
 import art from "@/assets/mithila-story-refined.png";
 import banner from "@/assets/banner.jpg";
-import productBg from "@/assets/products-minimal-bg.jpg";
-import wellnessBg from "@/assets/wellness-bg.jpeg.asset.json";
+import productBg from "@/assets/products-bg-v2.jpg";
+import wellnessBg from "@/assets/wellness-bg-v2.jpg";
+import { useSiteMotion } from "@/hooks/use-site-motion";
 import farming from "@/assets/pond-story.webm.asset.json";
 import premium from "@/assets/makhana-leaf-product.png";
 import { OrderInquiry } from "@/components/order-inquiry";
@@ -37,6 +38,7 @@ function MakhanaMenuIcon() {
 
 function Index() {
   const [menu, setMenu] = useState<"left" | "right" | null>(null);
+  useSiteMotion();
   return <main id="home" className="overflow-x-hidden bg-background text-foreground">
     <HomeHero>
       <header className="site-header absolute inset-x-0 top-0 z-20 grid grid-cols-[44px_minmax(0,1fr)_44px] items-center">
@@ -52,23 +54,23 @@ function Index() {
     <section id="story" className="story-section relative bg-cream">
       <img src={art} alt="Red Mithila painting of lotus blossoms and ornamental fish" width={512} height={2064} loading="lazy" className="story-art absolute" />
       <div className="story-layout relative mx-auto grid max-w-7xl gap-7 md:grid-cols-[1fr_1.15fr] md:items-center">
-        <div className="story-copy min-w-0">
+        <div data-reveal className="story-copy min-w-0">
           <p className="section-label">OUR STORY</p>
           <h2 className="mt-3 text-3xl font-semibold leading-[1.08] md:text-5xl">Born in the Wetland<br className="hidden md:block" /> Ponds of Mithila</h2>
           <blockquote className="mt-5 border-l border-plum/40 pl-4 font-display text-xl leading-snug text-plum">“Makhana is not just an agricultural crop; it is the cultural soul, pride, and heritage of the Mithila region.”</blockquote>
           <p className="mt-5 text-sm leading-relaxed text-muted-foreground">The freshwater ecosystems (pokhars) of Mithila possess the ideal microclimate and mineral-rich sediment required to grow the world’s finest Gorgon nut (<i>Euryale ferox</i>). At NeerNut, we honor this legacy.</p>
         </div>
-        <figure className="story-film overflow-hidden rounded-lg">
+        <figure data-reveal className="story-film overflow-hidden rounded-lg">
           <video src={farming.url} autoPlay muted loop playsInline preload="metadata" aria-label="Makhana pond farming footage" className="aspect-video w-full object-cover" />
         </figure>
       </div>
     </section>
 
     <section id="products" className="relative bg-aqua">
-      <img src={productBg} alt="" aria-hidden="true" width={1024} height={1536} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+      <img src={productBg} alt="" aria-hidden="true" width={1536} height={1024} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
       <div className="page-container product-layout relative py-14 md:py-20">
-        <div className="product-intro localized-haze"><p className="section-label">OUR MAKHANA</p><h2 className="mt-3 text-4xl font-semibold leading-[1.08] md:text-5xl">Nature’s Goodness<br />in Every Bite</h2><p className="mx-auto mt-5 max-w-md text-sm leading-7 text-foreground/85">Light, crisp and naturally wholesome. Carefully selected and traditionally popped, straight from Mithila.</p><a href="#wellness" className="mt-5 inline-flex items-center gap-2 border-b border-plum pb-1 text-sm text-plum">Naturally nourishing <ArrowRight className="h-4 w-4" /></a></div>
-        <article className="product-display mx-auto text-center"><img src={premium} alt="Premium white Mithila makhana served on a fresh green lotus leaf" width={1024} height={1024} loading="lazy" className="product-cutout mx-auto w-full object-contain" /><div className="product-details"><div className="mb-3 flex items-center justify-center gap-2 text-plum"><Leaf className="h-4 w-4" strokeWidth={1.3} /><p className="section-label">THE MITHILA ORIGINAL</p></div><h3 className="text-3xl font-semibold md:text-4xl">Premium Makhana</h3><p className="mt-3 text-xs text-foreground/85">Pure · Natural · Traditionally popped</p><div className="mx-auto mt-5 flex max-w-sm items-center justify-center gap-5 border-y border-plum/20 py-3 text-xs text-plum"><span>Hand-harvested</span><span aria-hidden="true">·</span><span>Sun-dried</span></div><Button asChild variant="outline" className="mt-6 rounded-full border-plum/60 bg-transparent text-plum hover:bg-cream/40"><a href="#inquiry">Ask about ordering <ArrowRight /></a></Button></div></article>
+        <div data-reveal className="product-intro"><p className="section-label">OUR MAKHANA</p><h2 className="mt-3 text-4xl font-semibold leading-[1.08] md:text-5xl">Nature’s Goodness<br />in Every Bite</h2><p className="mx-auto mt-5 max-w-md text-sm leading-7 text-foreground/85">Light, crisp and naturally wholesome. Carefully selected and traditionally popped, straight from Mithila.</p><a href="#wellness" className="mt-5 inline-flex items-center gap-2 border-b border-plum pb-1 text-sm text-plum">Naturally nourishing <ArrowRight className="h-4 w-4" /></a></div>
+        <article data-reveal className="product-display mx-auto text-center"><img src={premium} alt="Premium white Mithila makhana served on a fresh green lotus leaf" width={1024} height={1024} loading="lazy" className="product-cutout mx-auto w-full object-contain" /><div className="product-details"><div className="mb-3 flex items-center justify-center gap-2 text-plum"><Leaf className="h-4 w-4" strokeWidth={1.3} /><p className="section-label">THE MITHILA ORIGINAL</p></div><h3 className="text-3xl font-semibold md:text-4xl">Premium Makhana</h3><p className="mt-3 text-xs text-foreground/85">Pure · Natural · Traditionally popped</p><div className="mx-auto mt-5 flex max-w-sm items-center justify-center gap-5 border-y border-plum/20 py-3 text-xs text-plum"><span>Hand-harvested</span><span aria-hidden="true">·</span><span>Sun-dried</span></div><Button asChild variant="outline" className="mt-6 rounded-full border-plum/60 bg-transparent text-plum hover:bg-cream/40"><a href="#inquiry">Ask about ordering <ArrowRight /></a></Button></div></article>
       </div>
     </section>
 
@@ -88,9 +90,12 @@ function Index() {
       </div>
     </section>
 
-    <section id="wellness" className="wellness-section relative overflow-hidden bg-cream">
-      <img src={wellnessBg.url} alt="" aria-hidden="true" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
-      <div className="page-container relative py-14 md:py-20"><div className="wellness-heading localized-haze"><p className="section-label">NUTRITION & WELLNESS SPOTLIGHT</p><h2 className="mt-3 text-3xl font-semibold md:text-5xl">Why Nutritionists Choose Makhana</h2></div><div className="mt-10 grid gap-x-14 md:grid-cols-2">{wellness.map(({ icon: Icon, number, title, text }) => <article key={number} className="wellness-benefit border-t border-plum/20 py-7"><div className="mb-4 flex items-center justify-between text-plum"><Icon className="h-7 w-7" strokeWidth={1.2} /><span className="text-xs tabular-nums">{number}</span></div><div className="wellness-text localized-haze"><h3 className="text-2xl font-semibold">{title}</h3><p className="mt-3 max-w-lg text-sm leading-7">{text}</p></div></article>)}</div></div>
+    <section id="wellness" className="wellness-v2 relative overflow-hidden bg-plum text-primary-foreground">
+      <img src={wellnessBg} alt="" aria-hidden="true" width={1024} height={1536} loading="lazy" className="wellness-bg absolute inset-0 h-full w-full object-cover" />
+      <div className="page-container relative py-16 md:py-24">
+        <div data-reveal className="max-w-2xl"><p className="text-[10px] font-semibold tracking-[0.22em] text-primary-foreground/80">NUTRITION & WELLNESS SPOTLIGHT</p><h2 className="mt-4 text-4xl font-medium leading-[1.05] md:text-6xl">Why Nutritionists<br />Choose Makhana</h2><p className="mt-5 max-w-md text-sm leading-7 text-primary-foreground/80">Four quiet strengths of a seed grown in Mithila's ponds.</p></div>
+        <div className="mt-12 grid gap-4 md:grid-cols-2">{wellness.map(({ icon: Icon, number, title, text }) => <article key={number} data-reveal className="wellness-card"><div className="flex items-center justify-between"><span className="wellness-icon"><Icon className="h-5 w-5" strokeWidth={1.4} /></span><span className="font-display text-3xl text-primary-foreground/40 tabular-nums">{number}</span></div><h3 className="mt-6 text-2xl font-medium">{title}</h3><p className="mt-3 text-sm leading-7 text-primary-foreground/80">{text}</p></article>)}</div>
+      </div>
     </section>
 
     <section id="sourcing" className="relative bg-plum text-primary-foreground">
