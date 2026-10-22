@@ -14,3 +14,4 @@
 - Keep mobile picture framing and painting clearance in the global homepage layout styles, so artwork remains separate from readable copy across phone widths.
 - Keep homepage section navigation as in-page anchors and share one menu state between the two header controls, so both menus close on section selection.
 - Keep inquiry validation in a shared Zod schema and submit through a public server function using an insert-only RLS client; shopper contact details must never be publicly readable.
+- Keep scroll animations in the useSiteMotion hook (GSAP + ScrollTrigger, lazily imported, skipped for reduced motion), so motion stays in one place and never runs during server rendering.
