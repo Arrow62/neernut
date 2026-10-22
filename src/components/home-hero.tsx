@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowDown, ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
-import pond from "@/assets/hero-pond.png.asset.json";
+import pond from "@/assets/hero-pond-v2.jpg";
 
 export function HomeHero({ children }: { children: React.ReactNode }) {
   const [api, setApi] = useState<CarouselApi>();
@@ -63,7 +63,7 @@ export function HomeHero({ children }: { children: React.ReactNode }) {
         {[0, 1, 2].map((slide) => (
           <CarouselItem key={slide} className="relative pl-0" aria-label={`${slide + 1} of 3`} aria-hidden={selected !== slide}>
             <div className="hero-picture" aria-hidden="true">
-              <img src={pond.url} alt="" className="hero-photo" width={1194} height={768} fetchPriority={slide === 0 ? "high" : "auto"} />
+              <img src={pond} alt="" className="hero-photo" width={848} height={1264} fetchPriority={slide === 0 ? "high" : "auto"} />
             </div>
             <div className="hero-copy relative z-10">
               <div className="hero-wash pointer-events-none" aria-hidden="true" />
