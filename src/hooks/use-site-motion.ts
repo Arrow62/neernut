@@ -19,10 +19,13 @@ export function useSiteMotion() {
         gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((el) => {
           gsap.from(el, { y: 60, opacity: 0, duration: 1.1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 88%" } });
         });
-        gsap.utils.toArray<HTMLElement>(".wellness-bg, #products > img").forEach((el) => {
+        gsap.to(".story-art-v4", { yPercent: -10, ease: "none", scrollTrigger: { trigger: ".story-v4", start: "top bottom", end: "bottom top", scrub: true } });
+        gsap.fromTo(".story-film-frame video", { scale: 1.25 }, { scale: 1, ease: "none", scrollTrigger: { trigger: ".story-v4", start: "top bottom", end: "bottom top", scrub: true } });
+        gsap.utils.toArray<HTMLElement>(".wellness-v4-bg, .products-v4-bg, .sourcing-v4-bg").forEach((el) => {
           gsap.fromTo(el, { yPercent: -8, scale: 1.15 }, { yPercent: 8, ease: "none", scrollTrigger: { trigger: el.parentElement, start: "top bottom", end: "bottom top", scrub: true } });
         });
         gsap.from(".product-cutout", { rotate: -12, scale: .85, duration: 1.4, ease: "back.out(1.4)", scrollTrigger: { trigger: ".product-display", start: "top 80%" } });
+        gsap.to(".product-cutout", { y: -14, duration: 3.2, ease: "sine.inOut", yoyo: true, repeat: -1 });
       });
     })();
     return () => { cancelled = true; ctx?.revert(); };
