@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowDown, ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
-import pond from "@/assets/hero-pond-v2.jpg";
+import pond from "@/assets/hero-pond-calm.jpg";
 
 export function HomeHero({ children }: { children: React.ReactNode }) {
   const [api, setApi] = useState<CarouselApi>();
@@ -58,19 +58,21 @@ export function HomeHero({ children }: { children: React.ReactNode }) {
 
   return (
     <div ref={scene} className="pond-scene">
+    <svg width="0" height="0" className="absolute" aria-hidden="true"><filter id="pond-water"><feTurbulence type="fractalNoise" baseFrequency="0.006 0.022" numOctaves="2" seed="4"><animate attributeName="baseFrequency" dur="18s" values="0.006 0.022;0.008 0.028;0.006 0.022" repeatCount="indefinite" /></feTurbulence><feDisplacementMap in="SourceGraphic" scale="9" /></filter></svg>
     <Carousel opts={{ loop: true }} setApi={setApi} aria-label="NEER-NUT highlights" className="home-hero bg-aqua">
       <CarouselContent className="ml-0">
         {[0, 1, 2].map((slide) => (
           <CarouselItem key={slide} className="relative pl-0" aria-label={`${slide + 1} of 3`} aria-hidden={selected !== slide}>
             <div className="hero-picture" aria-hidden="true">
-              <img src={pond} alt="" className="hero-photo" width={848} height={1264} fetchPriority={slide === 0 ? "high" : "auto"} />
+              <img src={pond} alt="" className="hero-photo" width={1088} height={1920} fetchPriority={slide === 0 ? "high" : "auto"} />
+              <div className="hero-mist" /><div className="hero-mist hero-mist-2" />
             </div>
             <div className="hero-copy relative z-10">
               <div className="hero-wash pointer-events-none" aria-hidden="true" />
               <p className="text-[10px] font-semibold sm:text-xs">FROM THE PONDS OF MITHILA</p>
               {slide === 0 ? <h1 className="hero-title">Nature’s Pearl,<br />Mithila’s Pride</h1> : <h2 className="hero-title">Nature’s Pearl,<br />Mithila’s Pride</h2>}
               <p className="hero-description text-foreground/85">From Mithila’s freshwater ponds to your everyday rituals. Hand-harvested, sun-dried and traditionally popped—pure, light and naturally wholesome makhana.</p>
-              <Button asChild variant="outline" tabIndex={selected === slide ? 0 : -1} className="hero-cta rounded-full border-plum bg-plum text-primary-foreground hover:bg-plum/90 hover:text-primary-foreground">
+              <Button asChild variant="outline" tabIndex={selected === slide ? 0 : -1} className="hero-cta rounded-full border-plum/70 bg-transparent text-plum hover:bg-plum hover:text-primary-foreground">
                 <a href="#products">Explore Our Makhana <ArrowRight /></a>
               </Button>
             </div>
